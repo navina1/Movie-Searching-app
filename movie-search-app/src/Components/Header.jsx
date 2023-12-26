@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../header.css";
 import Card from './Card';
-const apiKey = process.env.REACT_APP_API_KEY;
-const base_url="https://api.themoviedb.org/3";
-let url=base_url+"/discover/movie?sort_by=popularity.desc"+apiKey;
+let apiKey = process.env.REACT_APP_API_KEY;
+let base_url="https://api.themoviedb.org/3";
+let url=base_url+"/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
 function Header() {
-    
+    const [urlData,setUrlData]=useState(url);
+    const [movieData,setMovieData]=useState([]);
+    const getMovie=()=>{
+        console.log(apiKey)
+        console.log(url)
+        fetch(url).then(res=>res.json())
+        .then(json=>console.log(json))
+    }
+    useEffect(()=>{
+       getMovie()
+    },[])
     return (
         <>
             <div className='header'>

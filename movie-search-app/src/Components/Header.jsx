@@ -1,7 +1,11 @@
-import React from 'react'
-import "../header.css"
-import Card from './Card'
+import React from 'react';
+import "../header.css";
+import Card from './Card';
+const apiKey = process.env.REACT_APP_API_KEY;
+const base_url="https://api.themoviedb.org/3";
+let url=base_url+"/discover/movie?sort_by=popularity.desc"+apiKey;
 function Header() {
+    
     return (
         <>
             <div className='header'>

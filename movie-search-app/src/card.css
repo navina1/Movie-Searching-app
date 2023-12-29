@@ -1,7 +1,26 @@
+[data-theme="light"] {
+    --background-color: white;
+    --primary-textcolor: black;
+    --toggle-bg: #f0eb9d;
+    --toggle-fg: #ffd000;
+    --navbar-color:#bb86fc;
+    --card-color:aliceblue;
+  }
+  
+  /* Add styles for the dark theme */
+  [data-theme="dark"] {
+    --background-color: black;
+    --primary-textcolor: white;
+    --toggle-bg: #283452;
+    --toggle-fg: #00a6ff;
+    --navbar-color:gray;
+    --card-color:gray;
+  }
 .movie{
     box-shadow: 0 5px 10px ;
     width: 250px;
-    background-color:aliceblue;
+    background-color:var(--card-color);
+    background-color:var(--navbar-color);
     margin: 1rem;
     border-radius: 5px;
     box-sizing: border-box;

@@ -7,6 +7,7 @@
     --primary-textcolor: black;
     --toggle-bg: #f0eb9d;
     --toggle-fg: #ffd000;
+    --navbar-color:#bb86fc;
   }
   
   /* Add styles for the dark theme */
@@ -15,6 +16,7 @@
     --primary-textcolor: white;
     --toggle-bg: #283452;
     --toggle-fg: #00a6ff;
+    --navbar-color:gray;
   }
 body{
      background-color: var(--background-color);
@@ -25,7 +27,7 @@ body{
     display: flex;
     height: 100px;
     width: 100%;
-    background-color: #bb86fc;
+    background-color:var(--navbar-color);
     justify-content: space-around;
     align-items: center;
     margin-bottom: 30px;

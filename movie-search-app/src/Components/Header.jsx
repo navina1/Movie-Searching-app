@@ -3,6 +3,7 @@ import "../header.css";
 import Card from './Card';
 import axios from "axios";
 import Detail from './Detail';
+import {Toogle} from './Toogle'
 let apiKey = process.env.REACT_APP_API_KEY;
 let base_url="https://api.themoviedb.org/3";
 let url=base_url+`/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -12,6 +13,7 @@ function Header() {
     const [movieData,setMovieData]=useState([]);
     const [selectedMovie,setSelectedMovie]=useState();
     const [search,setSearch]=useState();
+    const [isDark,setIsDark]=useState(false)
     const getData=(movieType)=>{
         setSelectedMovie("");
         setSearch(" ");
@@ -38,17 +40,24 @@ function Header() {
         setUrlData(url)
     }
     const searchMovie=(evt)=>{
-        if(evt.key=="Enter")
-        {
-            url=`https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
-            setUrlData(url);
+        if(search){
+            if(evt.key=="Enter")
+            {
+                url=`https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
+                setUrlData(url);
+            }
+        }else{
+            alert("Please enter a movie name!");
         }
+        
     }
     const searchMovies=()=>{
-        
+        if(search)
         {
             url=`https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
             setUrlData(url);
+        }else{
+            alert("Please enter a movie name!");
         }
     }
     const getMovie=()=>{
@@ -68,8 +77,8 @@ function Header() {
        getMovie()
     },[urlData])
     return (
-        <>
-            <div className='header'>
+        <div className='sample' data-theme={isDark?"dark":"light"}>
+            <div className='header' data-theme={isDark?"dark":"light"}>
                 <nav>
                     <ul>
                         <li><a href='#' name={"Popular"} onClick={(e)=>{getData(e.target.name)}}>Popular</a></li>
@@ -86,8 +95,9 @@ function Header() {
                         <button onClick={(e)=>searchMovies()}><i className="fas fa-search"></i></button>
                     </div>
                 </form>
+                <Toogle ischecked={isDark} handleChange={()=>setIsDark(!isDark)}/>
             </div>
-            <div className='container'>
+            <div className='container' data-theme={isDark?"dark":"light"}>
                 {selectedMovie ? <Detail selectedMovie={selectedMovie}/>
                 : (movieData.length === 0 ? <p className="notfound">Not Found</p>
                     : movieData?.results.map((data, index) => (
@@ -97,7 +107,7 @@ function Header() {
                 }
             </div>
 
-        </>
+        </div>
     )
 }
 

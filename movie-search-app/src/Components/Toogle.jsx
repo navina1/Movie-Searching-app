@@ -10,6 +10,7 @@ export const Toogle =({handleChange,ischecked}) =>{
                 onChange={handleChange}
                 checked={ischecked}
             />
+            {console.log(ischecked)}
             <label htmlFor="check">{ischecked?"Dark Mode":"Light Mode"}</label>
         </div>
     )

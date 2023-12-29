@@ -44,6 +44,13 @@ function Header() {
             setUrlData(url);
         }
     }
+    const searchMovies=()=>{
+        
+        {
+            url=`https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
+            setUrlData(url);
+        }
+    }
     const getMovie=()=>{
         //console.log(apiKey)
         //console.log(url)
@@ -76,7 +83,7 @@ function Header() {
                     <div className='search'>
                         <input type='text' placeholder='Enter movie name' className='search-input' value={search} onKeyPress={searchMovie} onChange={(e)=>{setSearch(e.target.value)}}>
                         </input>
-                        <button><i className="fas fa-search"></i></button>
+                        <button onClick={(e)=>searchMovies()}><i className="fas fa-search"></i></button>
                     </div>
                 </form>
             </div>

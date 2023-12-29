@@ -10,9 +10,11 @@ let url=base_url+`/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0
 function Header() {
     const [urlData,setUrlData]=useState(url);
     const [movieData,setMovieData]=useState([]);
-    const [selectedMovie,setSelectedMovie]=useState()
+    const [selectedMovie,setSelectedMovie]=useState();
+    const [search,setSearch]=useState();
     const getData=(movieType)=>{
-        setSelectedMovie("")
+        setSelectedMovie("");
+        setSearch(" ");
         if(movieType=="Popular")
         {
             url=base_url+`/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -34,6 +36,13 @@ function Header() {
             url=base_url+"/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
         }
         setUrlData(url)
+    }
+    const searchMovie=(evt)=>{
+        if(evt.key=="Enter")
+        {
+            url=`https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
+            setUrlData(url);
+        }
     }
     const getMovie=()=>{
         //console.log(apiKey)
@@ -65,7 +74,7 @@ function Header() {
                 </nav>
                 <form>
                     <div className='search'>
-                        <input type='text' placeholder='Enter movie name' className='search-input'>
+                        <input type='text' placeholder='Enter movie name' className='search-input' value={search} onKeyPress={searchMovie} onChange={(e)=>{setSearch(e.target.value)}}>
                         </input>
                         <button><i className="fas fa-search"></i></button>
                     </div>

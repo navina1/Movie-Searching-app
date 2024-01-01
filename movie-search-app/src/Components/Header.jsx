@@ -82,7 +82,7 @@ function Header() {
                 <nav>
                     <ul>
                         <li><a href='#' name={"Popular"} onClick={(e)=>{getData(e.target.name)}}>Popular</a></li>
-                        <li><a href='#' name={"Theatre"} onClick={(e)=>{getData(e.target.name)}}>Theatre</a></li>
+                        {/* <li><a href='#' name={"Theatre"} onClick={(e)=>{getData(e.target.name)}}>Theatre</a></li> */}
                         <li><a href='#' name={"Kids"} onClick={(e)=>{getData(e.target.name)}}>Drama</a></li>
                         <li><a href='#' name={"Drama"} onClick={(e)=>{getData(e.target.name)}}>Kids</a></li>
                         <li><a href='#' name={"Comedie"} onClick={(e)=>{getData(e.target.name)}}>Comedie</a></li>

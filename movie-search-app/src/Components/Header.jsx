@@ -38,24 +38,27 @@ function Header() {
         setUrlData(url)
     }
     const searchMovie = (evt) => {
+        setCurrentPage(1);
         if (search) {
-            if (evt.key == "Enter") {
-                url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
+            if (evt.key === "Enter") {
+                url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
                 setUrlData(url);
             }
         } else {
             alert("Please enter a movie name!");
         }
-
     }
+    
     const searchMovies = () => {
+        setCurrentPage(1);
         if (search) {
-            url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&query=${search}`;
+            url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
             setUrlData(url);
         } else {
             alert("Please enter a movie name!");
         }
     }
+    
     const getMovie = async () => {
         //console.log(apiKey)
         //console.log(url)

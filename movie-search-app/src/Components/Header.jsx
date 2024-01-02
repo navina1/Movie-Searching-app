@@ -25,17 +25,17 @@ function Header() {
         {
             url=base_url+"/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
         }
-        if(movieType=="Kids")
+        if(movieType=="TopRated")
         {
-            url=base_url+"/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
+            url=base_url+"/movie/top_rated?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
         }
-        if(movieType=="Drama")
+        if(movieType=="Upcoming")
         {
-            url=base_url+"/discover/movie?with_genres=18&primary_release_year=2014/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
+            url=base_url+"/movie/upcoming?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
         }
-        if(movieType=="Comedie")
+        if(movieType=="NowPlaying")
         {
-            url=base_url+"/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
+            url=base_url+"/movie/now_playing?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b";
         }
         setUrlData(url)
     }
@@ -83,9 +83,9 @@ function Header() {
                     <ul>
                         <li><a href='#' name={"Popular"} onClick={(e)=>{getData(e.target.name)}}>Popular</a></li>
                         {/* <li><a href='#' name={"Theatre"} onClick={(e)=>{getData(e.target.name)}}>Theatre</a></li> */}
-                        <li><a href='#' name={"Kids"} onClick={(e)=>{getData(e.target.name)}}>Drama</a></li>
-                        <li><a href='#' name={"Drama"} onClick={(e)=>{getData(e.target.name)}}>Kids</a></li>
-                        <li><a href='#' name={"Comedie"} onClick={(e)=>{getData(e.target.name)}}>Comedie</a></li>
+                        <li><a href='#' name={"TopRated"} onClick={(e)=>{getData(e.target.name)}}>Top-Rated</a></li>
+                        <li><a href='#' name={"Upcoming"} onClick={(e)=>{getData(e.target.name)}}>Upcoming</a></li>
+                        <li><a href='#' name={"NowPlaying"} onClick={(e)=>{getData(e.target.name)}}>Now-Playing</a></li>
                     </ul>
                 </nav>
                 <form>

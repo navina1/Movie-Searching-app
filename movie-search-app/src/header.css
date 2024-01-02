@@ -123,3 +123,34 @@ nav ul li a:focus::before{
         margin-right: 100px;
     }
 }
+
+.Pagination {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.Pagination button {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: teal;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.Pagination button:hover {
+    background-color: #bb86fc;
+}
+
+.Pagination button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+.Pagination span{
+    color: var(--primary-textcolor);
+}

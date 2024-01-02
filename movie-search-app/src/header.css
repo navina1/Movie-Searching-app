@@ -126,8 +126,7 @@ nav ul li a:focus::before{
 
 .Pagination {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    padding: 20px;
 }
 
 .Pagination button {

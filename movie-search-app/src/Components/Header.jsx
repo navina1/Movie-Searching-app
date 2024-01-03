@@ -87,6 +87,7 @@ function Header() {
                 // Replace the existing page number in the URL with the new page number
                 return prevUrl.replace(/&page=\d+/, `&page=${newPage}`);
             });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       };
     useEffect(() => {

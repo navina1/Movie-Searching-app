@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { toast , ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import "../header.css";
 import Card from './Card';
 import axios from "axios";
@@ -18,7 +20,7 @@ function Header() {
     const [totalPages, setTotalPages] = useState(1);
     const getData = (movieType) => {
         setSelectedMovie("");
-        setSearch(" ");
+        setSearch();
         setCurrentPage(1);
         if (movieType == "Popular") {
             url = base_url + `/movie/popular?language=en-US&page=${currentPage}/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -37,28 +39,43 @@ function Header() {
         }
         setUrlData(url)
     }
+    // const searchMovie = (evt) => {
+    //     setCurrentPage(1);
+    //     if (search) {
+    //         if (evt.key === "Enter") {
+    //             url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
+    //             setUrlData(url);
+    //         }
+    //     } else {
+    //         alert("Please enter a movie name!");
+    //     }
+    // }
     const searchMovie = (evt) => {
         setCurrentPage(1);
-        if (search) {
-            if (evt.key === "Enter") {
-                url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
-                setUrlData(url);
-            }
-        } else {
-            alert("Please enter a movie name!");
+        if (search && evt.key === "Enter") {
+            const newUrl = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
+            setUrlData(newUrl);
         }
-    }
-    
+    };
+    // const searchMovies = () => {
+    //     setCurrentPage(1);
+    //     if (search) {
+    //         url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
+    //         setUrlData(url);
+    //     } else {
+    //         alert("Please enter a movie name!");
+    //     }
+    // }
     const searchMovies = () => {
         setCurrentPage(1);
         if (search) {
-            url = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
-            setUrlData(url);
+            const newUrl = `https://api.themoviedb.org/3/search/movie?api_key=6e28fbfb04fe94d0a43b42b1b34a374b&page=${currentPage}&query=${search}`;
+            setUrlData(newUrl);
         } else {
-            alert("Please enter a movie name!");
+           // alert("Please enter a movie name!");
+           toast.error('Please enter a movie name!');
         }
-    }
-    
+    };
     const getMovie = async () => {
         //console.log(apiKey)
         //console.log(url)
@@ -71,6 +88,7 @@ function Header() {
             setTotalPages(results?.total_pages);
         } catch (error) {
             console.error('Error fetching data:', error);
+            toast.error('An error occurred. Please try again later.');
         }
     }
     const openDetail = (id) => {
@@ -79,6 +97,11 @@ function Header() {
                 //console.log(data.data)
                 setSelectedMovie(data?.data)
             })
+            .catch((error) => {
+                console.error('Error fetching movie details:', error);
+                toast.error('An error occurred while fetching movie details. Please try again later.'
+                );
+            });
     }
     const handlePageChange = (newPage) => {
         if (newPage >= 1 && newPage <= totalPages) {
@@ -96,6 +119,7 @@ function Header() {
     console.log(movieData)
     return (
         <div className='sample' data-theme={isDark ? "dark" : "light"}>
+                <ToastContainer />
             <div className='header' data-theme={isDark ? "dark" : "light"}>
                 <nav>
                     <ul>
@@ -135,6 +159,7 @@ function Header() {
                 </button>
             </div>
             }
+         
         </div>
     )
 }

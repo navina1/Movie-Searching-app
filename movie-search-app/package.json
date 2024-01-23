@@ -1,5 +1,5 @@
 {
-  "homepage": "https://username.github.io/Movie-Searching-app",
+  "homepage": "https://navina1.github.io/Movie-Searching-app/movie-search-app",
   "name": "movie-search-app",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy":"gh-pages -b gh-pages -d Movie-Search-app/build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -9,6 +9,7 @@ function App() {
     <Router>
     <Switch>
       <Route path="/" component={<Header/>} />
+      <Route path="*" element={<h1>Page not found</h1>} />
     </Switch>
   </Router>
   );

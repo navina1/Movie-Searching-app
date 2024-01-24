@@ -89,7 +89,7 @@ function Header() {
             setMovieData(results);
             setTotalPages(results?.total_pages);
         } catch (error) {
-            console.error('Error fetching data:', error);
+            //console.error('Error fetching data:', error);
             toast.error('An error occurred. Please try again later.');
         }
     }
@@ -132,11 +132,11 @@ function Header() {
                         <li><a href='#' name={"NowPlaying"} onClick={(e) => { getData(e.target.name) }}>Now-Playing</a></li>
                     </ul>
                 </nav>
-                <form>
+                <form onSubmit={(e) => { e.preventDefault(); searchMovies(); }}>
                     <div className='search'>
                         <input type='text' placeholder='Enter movie name' className='search-input' value={search} onKeyPress={searchMovie} onChange={(e) => { setSearch(e.target.value) }}>
                         </input>
-                        <button onClick={(e) => searchMovies()}><i className="fas fa-search"></i></button>
+                        <button><i className="fas fa-search"></i></button>
                     </div>
                 </form>
                 <Toogle ischecked={isDark} handleChange={() => setIsDark(!isDark)} />

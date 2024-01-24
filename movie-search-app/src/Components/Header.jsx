@@ -22,7 +22,7 @@ function Header() {
     const [totalPages, setTotalPages] = useState(1);
     const getData = (movieType) => {
         setSelectedMovie("");
-        setSearch();
+        setSearch("");
         setCurrentPage(1);
         if (movieType == "Popular") {
             url = base_url + `/movie/popular?language=en-US&page=${currentPage}/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -132,7 +132,7 @@ function Header() {
                         <li><a href='#' name={"NowPlaying"} onClick={(e) => { getData(e.target.name) }}>Now-Playing</a></li>
                     </ul>
                 </nav>
-                <form onSubmit={(e) => { e.preventDefault(); searchMovies(); }}>
+                <form onSubmit={(e) => { e.preventDefault(); searchMovies();setSelectedMovie() }}>
                     <div className='search'>
                         <input type='text' placeholder='Enter movie name' className='search-input' value={search} onKeyPress={searchMovie} onChange={(e) => { setSearch(e.target.value) }}>
                         </input>

@@ -1,0 +1,20 @@
+/* Add this CSS to your stylesheets or style component */
+
+.dark-footer {
+    background-color:gray;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+  }  
+  .light-footer{
+    background-color:#bb86fc;
+    color: #fff;
+    padding: 2px;
+    text-align: center;
+  }
+  .bottom-footer {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  

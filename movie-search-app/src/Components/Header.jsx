@@ -8,6 +8,7 @@ import Detail from './Detail';
 import { Toogle } from './Toogle'
 import { Skeleton } from '@mui/material';
 import Skelton from './Skelton';
+import Footer from './Footer';
 let apiKey = process.env.REACT_APP_API_KEY;
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + `/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -161,7 +162,7 @@ function Header() {
                 </button>
             </div>
             }
-         
+            <Footer theme={isDark ? "dark" : "light"}/>
         </div>
     )
 }

@@ -6,6 +6,8 @@ import Card from './Card';
 import axios from "axios";
 import Detail from './Detail';
 import { Toogle } from './Toogle'
+import { Skeleton } from '@mui/material';
+import Skelton from './Skelton';
 let apiKey = process.env.REACT_APP_API_KEY;
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + `/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -141,8 +143,8 @@ function Header() {
             </div>
             <div className='container' data-theme={isDark ? "dark" : "light"}>
                 {selectedMovie ? <Detail selectedMovie={selectedMovie} />
-                    : (movieData.length === 0 ? <p className="notfound">Not Found</p>
-                        : movieData?.results.map((data, index) => (
+                    : (movieData.length === 0 ? <Skelton/>
+                        : movieData?.results?.map((data, index) => (
                             <Card key={index} data={data} openDetail={openDetail} />
                         ))
                     )

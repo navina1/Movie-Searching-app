@@ -6,6 +6,7 @@
     --toggle-fg: #ffd000;
     --navbar-color:#bb86fc;
     --card-color:aliceblue;
+    --temp-color:#f9f9f9;
   }
   
   /* Add styles for the dark theme */
@@ -16,6 +17,7 @@
     --toggle-fg: #00a6ff;
     --navbar-color:gray;
     --card-color:gray;
+    --temp-color:gray;
   }
 .detail {
     display: flex;
@@ -26,9 +28,28 @@
 
 .discription {
     display: flex;
-    margin-top: 30px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px; 
 }
-
+.poster {
+    width: 100%; /* Make sure the image takes 100% of the container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+.poster-container {
+  width: 200px; /* Set the width of the poster container */
+}
+.content-center{
+    text-align: center;
+    max-width: 65%;
+}
+.overview-container {
+    padding: 20px; /* Add padding as needed */
+    border: 1px solid #ddd; /* Add border styling as needed */
+    border-radius: 8px; /* Add border-radius as needed */
+    background-color: var(--temp-color); /* Add background color as needed */
+    margin-bottom: 20px; /* Add margin as needed */
+  }
 .poster {
     width: 200px; /* Adjust the width as needed */
     height: auto;

@@ -33,13 +33,16 @@
     padding: 20px; 
 }
 .poster {
+    display: flex;
     width: 100%; /* Make sure the image takes 100% of the container width */
     height: auto; /* Maintain aspect ratio */
   }
 .poster-container {
+    display: flex;
   width: 200px; /* Set the width of the poster container */
 }
 .content-center{
+   
     text-align: center;
     max-width: 65%;
 }
@@ -84,4 +87,15 @@ span {
 }
 h1{
     color: teal;
+}
+
+@media (max-width: 600px) {
+    .content-center{
+        display: flex;
+        flex-direction: column;
+    }
+    .discription{
+        display: flex;
+        flex-direction: column;
+    }
 }

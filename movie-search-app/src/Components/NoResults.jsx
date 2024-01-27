@@ -1,10 +1,11 @@
 import React from 'react'
-import NoresultImg from "../../public/no-results.png";
+import NoresultImg from "./no-results.png";
+import "../noresult.css"
 function NoResults() {
   return (
-    <div>
-        <h1 className="text-center">No Results Found</h1>
-        <img src='NoresultImg' alt='no results'/>
+    <div className='main-container'>
+        <h4 className="text-center">No Results Found</h4>
+        <img className='poster-container' src={NoresultImg} alt='no results'/>
     </div>
   )
 }

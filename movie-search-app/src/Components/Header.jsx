@@ -9,6 +9,7 @@ import { Toogle } from './Toogle'
 import { Skeleton } from '@mui/material';
 import Skelton from './Skelton';
 import Footer from './Footer';
+import NoResults from './NoResults';
 let apiKey = process.env.REACT_APP_API_KEY;
 let base_url = "https://api.themoviedb.org/3";
 let url = base_url + `/movie/popular?language=en-US&page=1/&api_key=6e28fbfb04fe94d0a43b42b1b34a374b`;
@@ -143,16 +144,16 @@ function Header() {
                 <Toogle ischecked={isDark} handleChange={() => setIsDark(!isDark)} />
             </div>
             <div className='container' data-theme={isDark ? "dark" : "light"}>
-                
-                {selectedMovie ? <Detail selectedMovie={selectedMovie} />
+                {movieData?.results?.length ==0 ? (<NoResults/>) :
+                    (selectedMovie ? <Detail selectedMovie={selectedMovie} />
                     : (movieData.length === 0 ? <Skelton/>
                         : movieData?.results?.map((data, index) => (
                             <Card key={index} data={data} openDetail={openDetail} />
                         ))
-                    )
+                    ))
                 }
             </div>
-            {!selectedMovie &&
+            {!selectedMovie && movieData?.results?.length > 0 &&
             <div className='Pagination'> 
                 <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
                     Previous

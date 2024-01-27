@@ -143,6 +143,7 @@ function Header() {
                 <Toogle ischecked={isDark} handleChange={() => setIsDark(!isDark)} />
             </div>
             <div className='container' data-theme={isDark ? "dark" : "light"}>
+                
                 {selectedMovie ? <Detail selectedMovie={selectedMovie} />
                     : (movieData.length === 0 ? <Skelton/>
                         : movieData?.results?.map((data, index) => (

@@ -86,6 +86,7 @@ function Header() {
         // fetch(urlData).then(res=>res.json())
         // .then(data=>setMovieData(data))
         try {
+            setMovieData([])
             const response = await axios.get(urlData);
             const results = response.data;
             setMovieData(results);
